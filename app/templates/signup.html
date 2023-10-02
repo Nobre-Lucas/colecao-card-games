@@ -3,22 +3,57 @@
 {% block content %}
 
 <div class="container">
-    <form>
+    <form action="" method="POST">
+        {{ form.csrf_token }}
         <div class="form-group">
             <label for="InputName">Nome Completo</label>
-            <input type="text" class="form-control" id="InputName">
+            <!-- <input type="text" class="form-control" id="InputName"> -->
+            {{ form.fullname(type='text', class='form-control', id='InputFullName') }}
+            {% if form.errors.fullname %}
+            <div class="alert alert-danger" role="alert">
+                {{ form.errors.fullname }}
+            </div>
+            {% endif %}
+        </div>
+        <div class="form-group mt-3">
+            <label for="InputName">Nome de Usuário</label>
+            <!-- <input type="text" class="form-control" id="InputName"> -->
+            {{ form.username(type='text', class='form-control', id='InputUserName')}}
+            {% if form.errors.username %}
+            <div class="alert alert-danger" role="alert">
+                {{ form.errors.username }}
+            </div>
+            {% endif %}
         </div>
         <div class="form-group mt-3">
             <label for="InputEmail">Email</label>
-            <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp">
+            <!-- <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp"> -->
+            {{ form.email(type='email', class='form-control', id='InputEmail')}}
+            {% if form.errors.email %}
+            <div class="alert alert-danger" role="alert">
+                {{ form.errors.email }}
+            </div>
+            {% endif %}
         </div>
         <div class="form-group mt-3">
             <label for="InputPassword1">Senha</label>
-            <input type="password" class="form-control" id="InputPassword1">
+            <!-- <input type="password" class="form-control" id="InputPassword1"> -->
+            {{ form.password(type='password', class='form-control', id='InputPassword1')}}
+            {% if form.errors.password %}
+            <div class="alert alert-danger" role="alert">
+                {{ form.errors.password }}
+            </div>
+            {% endif %}
         </div>
         <div class="form-group mt-3">
             <label for="InputPassword2">Confirme sua senha</label>
-            <input type="password" class="form-control" id="InputPassword2">
+            <!-- <input type="password" class="form-control" id="InputPassword2"> -->
+            {{ form.confirm_password(type='password', class='form-control', id='InputPassword2')}}
+            {% if form.errors.confirm_password %}
+            <div class="alert alert-danger" role="alert">
+                {{ form.errors.confirm_password }}
+            </div>
+            {% endif %}
         </div>
         <button type="submit" class="btn btn-primary mt-3">Cadastrar</button>
     </form>
