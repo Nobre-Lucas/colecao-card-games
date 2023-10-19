@@ -3,7 +3,7 @@ from flask import render_template
 from app import app
 from app import db
 
-from app.models.tables import User
+from app.models.users import User
 from app.models.forms import SignupForm
 
 import bcrypt

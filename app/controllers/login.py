@@ -3,7 +3,7 @@ from flask_login import login_required, login_user, logout_user, current_user
 
 from app import app
 from app.models.forms import LoginForm
-from app.models.tables import User
+from app.models.users import User
 
 import bcrypt
 

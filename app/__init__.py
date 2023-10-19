@@ -17,4 +17,4 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 
 from app.controllers import index, login, logout, signup
-from app.models import tables, forms
+from app.models import forms, users
