@@ -1,4 +1,4 @@
-from abc import ABC
+from abc import ABC, abstractmethod
 
 from app import db
 
@@ -48,4 +48,17 @@ class Collection(db.Model):
         pass
     
 class Card(ABC):
-    pass
+    __tablename__ = 'cards'
+
+    id: int
+    name: str
+    # art TODO: Estudar como implementar o armazenamento da imagem no SQLAlchemy PostgreSQL
+    type: str
+    effects: str
+    release_collection: str
+    lower_price_in_cents: int
+    medium_price_in_cents: int
+    higher_price_in_cents: int
+
+    def __init__(self) -> None:
+        super().__init__()
